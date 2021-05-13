@@ -29,7 +29,7 @@ def predict():
         For rendering results on HTML GUI
         '''
         form = textForm()
-#        int_features = [int(x) for x in request.form.vaules()]
+       #int_features = [int(x) for x in request.form.vaules()]
         int_features = request.form['text']
         final = [np.array(int_features)]
         prediction = model.predict_proba(final)
