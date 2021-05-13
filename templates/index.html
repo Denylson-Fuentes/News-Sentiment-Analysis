@@ -1,0 +1,48 @@
+<!-- This file should be placed in a templates folder to connect properly with app.py -->
+<!DOCTYPE html>
+<html>
+
+  {% extends "layout.html" %}
+  {% block content %}
+  
+      <div class="content-section">
+          <form method="POST" action="{{ url_for('predict') }}">
+              {{ form.hidden_tag() }}
+  
+              <!--
+                  This is the form where all the info goes from user
+              -->
+              <fieldset class="form-group">
+                  <legend class="border-bottom mb-4">Predictions</legend>
+                  <!--Text box-->
+                  <div class=form-group" name="text">
+                      {{ form.text.label(class="form-control-label") }}
+                      {{ form.text(class="form-control form-control lg", rows="3") }}
+                  </div>
+              </fieldset>
+              <!--Submit button-->
+              <div class="form-group" action=>
+                  {{ form.submit(class='btn btn-outline-info')}}
+              </div>
+          </form>
+      </div>
+  {% endblock %}
+
+<!--
+  <div class="container">
+        <h3 class=container> News Sentiment Anaylsis </h3>
+          <form class="container">
+              </div class="container">
+                  <div class="form-group container">
+                    <form method="POST" action="{{ url_for('predict') }}">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class=" container form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                  </form>
+              </div>
+          </form>
+          <br>
+  </div>
+-->
+</html>
+
