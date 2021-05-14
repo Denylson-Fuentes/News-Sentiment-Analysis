@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash, pickle
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -12,7 +12,7 @@ app.config.from_object(__name__)
 # Flask-WTF requires an encryption key - the string can be anything
 app.config['SECRET_KEY'] = 'FtasdgaeTWET$5rrYIyi0P'
 
-# model=pickle.load(open('model.pk1', 'rb'))
+model=pickle.load(open('model_weight.pkl', 'rb'))
 
 @app.route('/',methods=['POST', 'GET'])
 def index():
