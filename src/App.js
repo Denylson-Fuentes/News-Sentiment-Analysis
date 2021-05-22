@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from "./Pages/Home"
 import ContactPage from "./Pages/Contact"
+import PredictPage from "./Pages/Predict"
 import {AppBar, Toolbar, IconButton, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -35,6 +36,7 @@ function App() {
           <Route path="/" exact component={() => <HomePage />} />
           {/* <Route path="/about" exact component={() => <About />} /> */}
           <Route path="/contact" exact component={() => <ContactPage />} />
+          <Route path="/predict" exact component={() => <PredictPage />} />
       </Switch>
     </div>
   );
