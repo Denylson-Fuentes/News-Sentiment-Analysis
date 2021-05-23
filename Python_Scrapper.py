@@ -1,5 +1,7 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
+import webbrowser
+
 
 #pip install bs4
 #pip install urllib (use pythonenv if needed urllib3 is new version)
@@ -10,22 +12,31 @@ from bs4 import BeautifulSoup as soup
 # Collect the page 
 # can change the url to any webpage make sure to inspect to see which tag the review is linked to 
 ############################
+    
+    # import libraries
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 
-page_url = 'https://www.imdb.com/title/tt5491994/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=12230b0e-0e00-43ed-9e59-8d5353703cce&pf_rd_r=5712KXHS7VP97846934S&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=toptv&ref_=chttvtp_tt_1'
-#collects the formatted data from the website
+# specify the url that will collect the formatted data from the website
+url = 'https://www.foxnews.com/media/hannity-bidens-response-to-colonial-pipeline-hack-is-beyond-embarassing'
 
-uClient= uReq(page_url)
-# opening up the connection to grab the page
- 
-page_html = uClient.read()
-#loads the content into a variable
+# Connect to the website and return the html to the variable ‘page’
+try:
+    page = urlopen(url)
+except:
+    print("Error opening the URL")
 
-uClient.close()
- # closes the content 
+# parse the html using beautiful soup and store in variable `soup`
+soup = BeautifulSoup(page, 'html.parser')
 
+# Take out the <div> of name and get its value
+content = soup.find('div', {"class": "article-body"})
 
-page_soup = soup(page_html, "html.parser")
-#html parsing
+article = ''
+for i in soup.find_all('p'):
+    article = article + '' +  i.text
+print(article) 
 
-
-#page_soup.p will print the <p> tags
+# Saving the scraped text
+with open('scraped_text.txt', 'w') as file:
+    file.write(article)
