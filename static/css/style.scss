@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: black;
+  }
+
+
+
+// main styles
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,78,178,1) 35%, rgba(102,0,255,1) 100%);
+}
+
+.border-bottom {
+    border-bottom: 2.5px solid #010910!important;
+}
+
+
+.content-section {
+    max-width: 800px;
+    margin: 100px auto;
+    background: #8484ab;
+    border-radius: 10px;
+    padding: 2rem;
+    -webkit-box-shadow: 5px 0px 5px 2px mediumpurple;
+    box-shadow: 5px 0px 5px 2px mediumpurple;
+    opacity: 0.9;
+    // &:hover {
+    //     opacity: .9;
+    // }
+}
+
+nav{
+    opacity: .2;
+    padding: 1rem;
+}
+//form styles 
